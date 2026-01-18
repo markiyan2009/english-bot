@@ -3,7 +3,7 @@ from db import *
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 # All handlers should be attached to the Router (or Dispatcher)
 dp = Dispatcher()
-
+TOKEN_API = os.getenv("TOKEN_API")
 @dp.message(CommandStart())
 async def command_start_handler(message: types.Message) -> None:
 

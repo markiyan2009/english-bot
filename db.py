@@ -1,7 +1,7 @@
 import asyncio
 import logging
 import sys
-from token_api import TOKEN_API
+
 from os import getenv
 from aiogram import Bot, Dispatcher, html, Router, F
 from aiogram.client.default import DefaultBotProperties
@@ -26,8 +26,8 @@ class WordState(StatesGroup):
 
 db_router = Router(name='db')
 url = 'https://strmitiqeerzvavfdzag.supabase.co'
-key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN0cm1pdGlxZWVyenZhdmZkemFnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM3NDg2OTEsImV4cCI6MjA3OTMyNDY5MX0.HU6OgY-a21mmqxNk0_k67kwuBVU3zrSUtMqR6sOtEa4'
-
+# 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN0cm1pdGlxZWVyenZhdmZkemFnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM3NDg2OTEsImV4cCI6MjA3OTMyNDY5MX0.HU6OgY-a21mmqxNk0_k67kwuBVU3zrSUtMqR6sOtEa4'
+key = os.getenv("DB_TOKEN")
 sp_db = supabase.create_client(url,key)
 from sentence_transformers import SentenceTransformer
 model = SentenceTransformer("intfloat/multilingual-e5-large")
